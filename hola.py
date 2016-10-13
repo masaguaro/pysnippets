@@ -37,4 +37,14 @@ def fibo(num):
             return 2
     else:
         return fibo(num-1) + fibo(num-2)
+
+memo = dict()		
+def fibomemo(num):
+    """ It returns a fibo number sequence in a dict."""
+    # Do not use fibo for memo ..this is used in this namespace already
+    memo[0] = 1
+    memo[1] = 1
+    if num not in memo:
+        memo[num] = fibomemo(num-1) + fibomemo(num-2)
+    return memo[num]
     
